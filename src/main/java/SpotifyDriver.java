@@ -3,7 +3,6 @@ import com.wrapper.spotify.*;
 import com.wrapper.spotify.exceptions.WebApiException;
 import com.wrapper.spotify.methods.*;
 import com.wrapper.spotify.models.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,6 +24,8 @@ public class SpotifyDriver {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the playlist generator!\nIf the song you like has a generic title, also type in the artist's name after the song!\n\nEnter the name of a song you like:");
         String songName = scan.nextLine();
+        System.out.println("Enter how many songs you want in your playlist: ");
+        int PLAYLIST_SIZE = Integer.parseInt(scan.nextLine());
         final TrackSearchRequest request = api.searchTracks(songName).market("US").build();
         try{
             final Page<Track> trackSearchResult = request.get();
@@ -44,7 +45,7 @@ public class SpotifyDriver {
                 }
             }
             Collections.shuffle(playlist);
-            for (int i = 0; i < playlist.size(); i++){
+            for (int i = 0; i < PLAYLIST_SIZE; i++){
                 System.out.println(playlist.get(i).getName() + " - " + playlist.get(i).getArtists().get(0).getName());
             }
             // at this point, playlist is created as a list of Track objects. Song titles and artists printed to console above.
@@ -65,7 +66,7 @@ public class SpotifyDriver {
             System.out.println("Check your Spotify account!");  THIS CREATES A REAL SPOTIFY PLAYLIST (BROKEN)*/
         }
         catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 }
