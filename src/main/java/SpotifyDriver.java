@@ -4,10 +4,16 @@ import java.util.Scanner;
  * Created by Naman on 5/6/2017.
  */
 public class SpotifyDriver {
+
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the playlist generator!\nMENU:\n1: PLAYLIST BY SONG TITLE\n2: PLAYLIST BY ARTIST TITLE\n3: ARTIST RECOMMENDER\nEnter your menu choice:");
         int choice = Integer.parseInt(scan.nextLine());
+        runMenu(choice);
+    }
+
+    private static void runMenu(int choice){
+        Scanner scan = new Scanner(System.in);
         if (choice == 1){
             System.out.println("Enter the name of a song:");
             String songName = scan.nextLine();
