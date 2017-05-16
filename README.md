@@ -1,5 +1,5 @@
 # spotify project
-This is my final project for my AP Computer Science clas built using the Java wrapper for the Spotify API created by @thelinmichael
+This is my final project for my AP Computer Science clas built using the Java wrapper for the Spotify API created by @thelinmichael found here: https://github.com/thelinmichael/spotify-web-api-java
 
 ### what it does
 
